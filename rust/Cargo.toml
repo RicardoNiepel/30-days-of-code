@@ -1,0 +1,6 @@
+[package]
+name = "30-days-of-coding-rust"
+version = "0.1.0"
+authors = ["Ricardo Niepel"]
+
+[dependencies]
