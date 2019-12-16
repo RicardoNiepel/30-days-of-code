@@ -53,6 +53,7 @@ RUN apt-get update \
         github.com/golangci/golangci-lint/cmd/golangci-lint \
         github.com/mgechev/revive \
         github.com/derekparker/delve/cmd/dlv 2>&1 \
+    # && go get golang.org/x/tools/gopls@latest 2>&1 \
     #
     # Create a non-root user to use if preferred - see https://aka.ms/vscode-remote/containers/non-root-user.
     && groupadd --gid $USER_GID $USERNAME \
@@ -66,3 +67,14 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/* /go/src
+
+# Install custom Go tools
+RUN go get -u -v \
+    # testify
+    github.com/stretchr/testify 2>&1
+
+# Enable Go Modules.
+# ENV GO111MODULE=on
+
+# Switch back to dialog for any ad-hoc use of apt-get
+ENV DEBIAN_FRONTEND=dialog

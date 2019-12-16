@@ -1,4 +1,4 @@
-package day1
+package day2
 
 import (
 	"bytes"
@@ -14,8 +14,8 @@ func Test_main(t *testing.T) {
 		expectedOutput string
 	}{
 		{
-			"12\n4.0\nis the best place to learn and practice coding!",
-			"16\n8.0\nHackerRank is the best place to learn and practice coding!",
+			"12.00\n20\n8\n",
+			"15",
 		},
 	}
 	for _, tt := range tests {
